@@ -19,7 +19,7 @@ pipeline {
           }
           steps {
                  sh '''#!/bin/bash
-                 targets=puppetclient1;
+                 docker exec -it puppetclient1 /bin/bash;
                  cd /testdir/clone;
                  git clone https://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@github.com/daemianKoh/devops_repo.git
                  locate_script='/testdir/clone/script_to_run';
