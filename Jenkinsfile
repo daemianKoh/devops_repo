@@ -23,7 +23,7 @@ pipeline {
                  puppet resource file /tmp/clone ensure=directory;
                  cd /tmp/clone;
                  git clone https://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@github.com/daemianKoh/devops_repo.git;
-                 targets=puppetclient1;
+                 targets=puppetclient1.localdomain;
                  locate_script='/tmp/clone/devops_repo/script_to_run';
                  bolt script run $locate_script -t $targets -u clientadm -p user123 --no-host-key-check --run-as root;
                  '''
@@ -44,7 +44,7 @@ pipeline {
           }
           steps {
                  sh '''#!/bin/bash
-                 targets=puppetclient2;
+                 targets=puppetclient2.localdomain;
                  locate_script='/tmp/clone/devops_repo/script_to_run'; 
                  bolt script run $locate_script -t $targets -u clientadm -p user123 --no-host-key-check --run-as root;
                  '''
